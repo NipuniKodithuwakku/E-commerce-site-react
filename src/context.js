@@ -7,6 +7,9 @@ class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct: detailProduct,
+    cart: [],
+    modelOpen: true,
+    modelProduct: detailProduct,
   };
   componentDidMount() {
     this.setProducts();
@@ -34,8 +37,34 @@ class ProductProvider extends Component {
       return { detailProduct: product };
     });
   };
-  addToCart = () => {
-    console.log("hello from add to cart");
+  addToCart = (id) => {
+    let tempProducts = [...this.state.products];
+    const index = tempProducts.indexOf(this.getItem(id));
+    const product = tempProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+
+    this.setState(
+      () => {
+        return { products: tempProducts, cart: [...this.state.cart, product] };
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+  openModel = (id) => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return { modelProduct: product, modelOpen: true };
+    });
+  };
+  closeModel = () => {
+    this.setState(() => {
+      return { modelOpen: false };
+    });
   };
   render() {
     return (
@@ -44,6 +73,8 @@ class ProductProvider extends Component {
           ...this.state,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
+          openModel: this.openModel,
+          closeModel: this.closeModel,
         }}
       >
         {this.props.children}
