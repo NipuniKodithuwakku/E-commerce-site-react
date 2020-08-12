@@ -1,3 +1,13 @@
+#root {
+  --mainBlue: #2a2a72;
+  --lightBlue: #009ffd;
+  --mainWhite: #f3f3f3;
+  --mainDark: #232528;
+  --mainYellow: #ffa400;
+}
+body {
+  background: var(--mainWhite) !important;
+}
 .text-yellow {
   color: #ffa400 !important;
   font-family: "Courier New", Courier, monospace;
