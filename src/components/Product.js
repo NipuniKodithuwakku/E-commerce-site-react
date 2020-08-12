@@ -30,7 +30,7 @@ export default class Product extends Component {
                   in cart
                 </p>
               ) : (
-                <i class="fa fa-cart-plus" />
+                <i className="fa fa-cart-plus" />
               )}
             </button>
           </div>
@@ -47,6 +47,15 @@ export default class Product extends Component {
     );
   }
 }
+Product.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    img: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    inCart: PropTypes.bool,
+  }).isRequired,
+};
 
 const ProductWrapper = styled.div`
   .card {

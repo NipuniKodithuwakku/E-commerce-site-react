@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ProductConsumer } from "../context";
 import { Link } from "react-router-dom";
-// import {ButtonContainer} from './Button'
+import { ButtonContainer } from "./Button";
 
 export default class Details extends Component {
   render() {
@@ -19,17 +19,21 @@ export default class Details extends Component {
           } = value.detailProduct;
           return (
             <div className="container py-5">
-              {/* title */}
               <div className="row">
-                <div className="col-10 mx-auto text-center text-slanted my-5">
+                <div className="col-10 mx-auto text-center text-slanted text-yellow my-5">
                   <h1>{title}</h1>
                 </div>
               </div>
-              {/* end title */}
+              {/*product info*/}
+              <div className="row">
+                <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                  <img src={img} className="img-fluid" alt="product" />
+                </div>
+                <div className="col-10 mx-auto col-md-6 my-3 text-capitalize"></div>
+              </div>
             </div>
           );
         }}
-        }
       </ProductConsumer>
     );
   }
