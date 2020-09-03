@@ -93,7 +93,7 @@ class ProductProvider extends Component {
       return {
         cartSubTotal: subTotal,
         cartTax: tax,
-        cartToatal: total,
+        cartTotal: total,
       };
     });
   };
